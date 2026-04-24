@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT. KERBLODAYMOLIS Nusantara - Revolusi Energi Hijau Indonesia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a3d25;
+            --secondary: #1b5e20;
+            --accent: #ffb300;
+            --accent-light: #ffd54f;
+            --light: #f8f9fa;
+            --dark: #1a1a1a;
+            --gray: #6c757d;
+            --card-bg: #ffffff;
+            --border: #e0e0e0;
+            --shadow: 0 8px 30px rgba(0,0,0,0.06);
+            --shadow-hover: 0 16px 48px rgba(0,0,0,0.12);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            --radius: 20px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fafbfc;
+            color: #333;
+            line-height: 1.75;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--primary); display: flex; justify-content: center; align-items: center;
+            z-index: 99999; transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        #preloader .spinner {
+            width: 50px; height: 50px;
+            border: 4px solid rgba(255,179,0,0.3);
+            border-top: 4px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        #preloader.hidden { opacity: 0; visibility: hidden; }
+
+        /* Top Bar */
+        .top-bar {
+            background: #111;
+            color: #aaa; padding: 8px 0; font-size: 0.8rem; z-index: 1001; position: relative;
+        }
+        .top-bar .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; align-items: center; }
+        .top-bar a { color: #aaa; text-decoration: none; margin-left: 12px; transition: 0.3s; font-size: 0.8rem; }
+        .top-bar a:hover { color: var(--accent); }
+        .top-bar i { color: var(--accent); margin-right: 4px; }
+
+        /* Header */
+        header {
+            background: rgba(10,61,37,0.97); backdrop-filter: blur(20px); color: white;
+            padding: 10px 0; position: sticky; top: 0; z-index: 1000;
+            transition: var(--transition); border-bottom: 2px solid rgba(255,179,0,0.25);
+        }
+        header.scrolled { padding: 6px 0; box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+        .container { max-width: 1300px; margin: auto; padding: 0 20px; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+        .logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        .logo-icon {
+            position: relative; width: 48px; height: 48px; background: var(--accent);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            animation: pulse-logo 2s infinite;
+        }
+        @keyframes pulse-logo {
+            0%,100% { box-shadow: 0 0 0 0 rgba(255,179,0,0.6); }
+            50% { box-shadow: 0 0 0 16px rgba(255,179,0,0); }
+        }
+        .logo-icon i { font-size: 1.5rem; color: var(--primary); }
+        .logo-text h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; letter-spacing: 1px; line-height: 1; }
+        .logo-text p { font-size: 0.6rem; letter-spacing: 3px; color: #a5d6a7; text-transform: uppercase; }
+        nav ul { display: flex; list-style: none; gap: 4px; flex-wrap: wrap; align-items: center; }
+        nav a {
+            color: white; text-decoration: none; font-weight: 500; padding: 9px 14px;
+            border-radius: 25px; transition: var(--transition); font-size: 0.85rem; white-space: nowrap;
+        }
+        nav a:hover, nav a.active { background: var(--accent); color: var(--primary); font-weight: 700; }
+        .btn-nav { background: var(--accent); color: var(--primary) !important; font-weight: 700; padding: 11px 20px; }
+
+        /* Hamburger Menu */
+        .hamburger { display: none; cursor: pointer; background: none; border: none; color: white; font-size: 1.6rem; }
+        @media (max-width: 992px) {
+            .hamburger { display: block; }
+            nav { display: none; width: 100%; }
+            nav.open { display: block; }
+            nav ul { flex-direction: column; gap: 2px; padding: 10px 0; }
+            nav a { display: block; text-align: center; padding: 12px; font-size: 0.9rem; }
+            .logo-text h2 { font-size: 1.2rem; }
+            .logo-icon { width: 40px; height: 40px; }
+            .logo-icon i { font-size: 1.2rem; }
+        }
+
+        /* Halaman */
+        .page { display: none; animation: fadeSlideIn 0.5s ease; }
+        .page.active { display: block; }
+        @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, rgba(10,61,37,0.93) 0%, rgba(0,0,0,0.65) 100%),
+            url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+            min-height: 85vh; display: flex; align-items: center; color: white;
+            position: relative; overflow: hidden;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 120px;
+            background: linear-gradient(to top, var(--primary), transparent);
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 750px; padding: 40px 0; }
+        .hero-badge {
+            display: inline-block; background: rgba(255,179,0,0.2); border: 1px solid var(--accent);
+            padding: 8px 18px; border-radius: 30px; font-weight: 600; font-size: 0.85rem;
+            margin-bottom: 20px; letter-spacing: 2px;
+        }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 800; line-height: 1.15; margin-bottom: 18px; }
+        .hero h1 span { background: linear-gradient(45deg, #ffb300, #ffd54f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; max-width: 550px; }
+        .hero-stats { display: flex; gap: 30px; flex-wrap: wrap; margin-top: 15px; }
+        .stat-item h3 { font-size: 2.2rem; color: var(--accent); font-weight: 800; }
+        .stat-item p { font-size: 0.85rem; margin: 0; opacity: 0.7; }
+
+        /* Buttons */
+        .btn {
+            display: inline-block; padding: 13px 28px; border-radius: 30px; font-weight: 700;
+            text-decoration: none; transition: var(--transition); border: none; cursor: pointer;
+            font-size: 0.95rem; letter-spacing: 0.5px; text-align: center;
+        }
+        .btn-primary { background: var(--accent); color: var(--primary); }
+        .btn-primary:hover { background: #ffa000; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,179,0,0.4); }
+        .btn-outline { border: 2px solid white; color: white; margin-left: 12px; }
+        .btn-outline:hover { background: white; color: var(--primary); }
+        .btn-sm { padding: 8px 18px; font-size: 0.8rem; }
+
+        /* Section */
+        section { padding: 70px 0; }
+        @media (max-width: 768px) { section { padding: 45px 0; } }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header .subtitle {
+            display: inline-block; background: #e8f5e9; color: var(--secondary);
+            padding: 6px 18px; border-radius: 20px; font-weight: 600; font-size: 0.8rem;
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;
+        }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--primary); margin-bottom: 12px; }
+        .section-header p { color: var(--gray); max-width: 650px; margin: auto; font-size: 1rem; }
+
+        /* Grid */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 35px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        @media (max-width: 600px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .grid-4 { grid-template-columns: 1fr 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 0.9rem; }
+            .hero-stats { gap: 15px; }
+            .stat-item h3 { font-size: 1.5rem; }
+            .section-header h2 { font-size: 1.6rem; }
+        }
+
+        /* Card */
+        .card {
+            background: var(--card-bg); border-radius: var(--radius); padding: 30px 25px;
+            transition: var(--transition); border: 1px solid #eee; position: relative; overflow: hidden;
+        }
+        .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: var(--accent); }
+        .card-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 16px; }
+        .card h3 { font-size: 1.25rem; margin-bottom: 10px; color: var(--primary); }
+        .card p { color: var(--gray); font-size: 0.9rem; }
+        .card .read-more { display: inline-block; margin-top: 12px; color: var(--secondary); font-weight: 600; text-decoration: none; }
+        .card:hover .read-more i { transform: translateX(5px); }
+        .read-more i { transition: 0.3s; }
+
+        /* Article Card */
+        .article-card {
+            background: white; border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow); transition: var(--transition); border: 1px solid #eee;
+        }
+        .article-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+        .article-img { height: 180px; background-size: cover; background-position: center; position: relative; }
+        .article-category {
+            position: absolute; top: 14px; left: 14px; background: var(--accent); color: var(--primary);
+            padding: 5px 14px; border-radius: 20px; font-weight: 700; font-size: 0.75rem;
+        }
+        .article-body { padding: 20px; }
+        .article-body .date { color: var(--gray); font-size: 0.8rem; margin-bottom: 8px; }
+        .article-body h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--primary); }
+        .article-body p { color: var(--gray); font-size: 0.85rem; }
+
+        /* Feature List */
+        .feature-list { list-style: none; }
+        .feature-list li { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 12px; }
+        .feature-list li i { color: var(--accent); margin-top: 4px; font-size: 1rem; }
+        .feature-list li strong { color: var(--primary); }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #f1f8e9, #e8f5e9); border-left: 5px solid var(--accent);
+            padding: 25px 30px; border-radius: 0 var(--radius) var(--radius) 0; margin: 25px 0;
+        }
+        .info-box h4 { color: var(--primary); margin-bottom: 8px; font-size: 1.1rem; }
+        .info-box p { color: #555; font-size: 0.9rem; }
+
+        /* Highlight Number */
+        .highlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; text-align: center; }
+        .highlight-item { background: white; padding: 25px 15px; border-radius: var(--radius); box-shadow: var(--shadow); }
+        .highlight-item .num { font-size: 2.5rem; font-weight: 800; color: var(--accent); }
+        .highlight-item .label { font-size: 0.85rem; color: var(--gray); margin-top: 4px; }
+
+        /* FAQ */
+        .faq-item {
+            background: white; border-radius: 14px; margin-bottom: 10px;
+            border: 1px solid #eee; overflow: hidden; transition: var(--transition);
+        }
+        .faq-question {
+            padding: 18px 22px; cursor: pointer; display: flex; justify-content: space-between;
+            align-items: center; font-weight: 600; color: var(--primary); transition: 0.3s;
+        }
+        .faq-question:hover { background: #f1f8e9; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.5s ease; padding: 0 22px; color: var(--gray); font-size: 0.9rem; }
+        .faq-item.open .faq-answer { max-height: 400px; padding: 0 22px 18px; }
+        .faq-item.open .faq-question { background: #f1f8e9; color: var(--secondary); }
+        .faq-item.open .faq-question i { transform: rotate(45deg); }
+
+        /* Contact Form */
+        .contact-form input, .contact-form textarea, .contact-form select {
+            width: 100%; padding: 13px 16px; border: 2px solid #e0e0e0; border-radius: 12px;
+            font-family: 'Poppins', sans-serif; font-size: 0.95rem; transition: 0.3s;
+            margin-bottom: 16px; background: #fafafa;
+        }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 4px rgba(255,179,0,0.08); }
+
+        /* Footer */
+        footer { background: #0a1a10; color: #a5d6a7; padding: 50px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; margin-bottom: 30px; }
+        .footer-grid h4 { color: white; margin-bottom: 16px; font-size: 1rem; }
+        .footer-grid ul { list-style: none; }
+        .footer-grid ul li { margin-bottom: 8px; }
+        .footer-grid ul li a { color: #a5d6a7; text-decoration: none; transition: 0.3s; font-size: 0.85rem; }
+        .footer-grid ul li a:hover { color: var(--accent); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 18px; text-align: center; font-size: 0.8rem; }
+
+        /* Animasi Scroll Reveal */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader"><div class="spinner"></div></div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span><i class="fas fa-map-marker-alt"></i> Kawasan Energi Hijau, Yogyakarta - Indonesia</span>
+            <span>
+                <a href="mailto:info@kerblodaymolis.co.id"><i class="fas fa-envelope"></i> info@kerblodaymolis.co.id</a>
+                <a href="tel:+6281234567890"><i class="fas fa-phone"></i> +62 812-3456-7890</a>
+            </span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="container nav-container">
+            <div class="logo" onclick="navigateTo('home')">
+                <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+                <div class="logo-text"><h2>KERBLODAYMOLIS</h2><p>Energi Nusantara</p></div>
+            </div>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><i class="fas fa-bars"></i></button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home" class="nav-link active" data-page="home">Beranda</a></li>
+                    <li><a href="#tentang" class="nav-link" data-page="tentang">Tentang</a></li>
+                    <li><a href="#teknologi" class="nav-link" data-page="teknologi">Teknologi</a></li>
+                    <li><a href="#keunggulan" class="nav-link" data-page="keunggulan">Keunggulan</a></li>
+                    <li><a href="#artikel" class="nav-link" data-page="artikel">Wawasan</a></li>
+                    <li><a href="#faq" class="nav-link" data-page="faq">FAQ</a></li>
+                    <li><a href="#kontak" class="nav-link btn-nav" data-page="kontak">Hubungi Kami</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== BERANDA ==================== -->
+    <div id="page-home" class="page active">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge"><i class="fas fa-leaf"></i> INOVASI ENERGI HIJAU 2025</div>
+                    <h1>Pembangkit Listrik Tenaga <span>Kerblodaymolis</span></h1>
+                    <p>Revolusi energi terbarukan Indonesia — memadukan <strong>Kerbau, Blower, Dayung & Motor Listrik</strong> menjadi pembangkit listrik ramah lingkungan, murah, dan berkelanjutan.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item"><h3>30 kW</h3><p>Kapasitas Unit</p></div>
+                        <div class="stat-item"><h3>720 kWh</h3><p>Produksi / Hari</p></div>
+                        <div class="stat-item"><h3>0 Emisi</h3><p>100% Hijau</p></div>
+                    </div>
+                    <div style="margin-top: 25px;">
+                        <a href="#teknologi" class="btn btn-primary" onclick="navigateTo('teknologi')"><i class="fas fa-play-circle"></i> Pelajari Teknologi</a>
+                        <a href="#kontak" class="btn btn-outline" onclick="navigateTo('kontak')"><i class="fas fa-headset"></i> Konsultasi Gratis</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Ringkasan Keunggulan -->
+        <section style="background: white;">
+            <div class="container">
+                <div class="section-header">
+                    <span class="subtitle">Mengapa Kerblodaymolis?</span>
+                    <h2>Solusi Energi Masa Depan</h2>
+                    <p>Kami menghadirkan pembangkit listrik yang tidak hanya bersih, tetapi juga memberdayakan masyarakat dan ekonomi lokal.</p>
+                </div>
+                <div class="grid-4 reveal">
+                    <div class="card"><div class="card-icon"><i class="fas fa-seedling"></i></div><h3>Zero Emission</h3><p>Tanpa pembakaran fosil. Hanya gerakan alami kerbau dan sirkulasi udara bersih.</p></div>
+                    <div class="card"><div class="card-icon"><i class="fas fa-coins"></i></div><h3>Biaya Rendah</h3><p>Pakan kerbau jauh lebih ekonomis dibanding solar atau batu bara. Hemat hingga 70%.</p></div>
+                    <div class="card"><div class="card-icon"><i class="fas fa-sync-alt"></i></div><h3>Kontinu 24/7</h3><p>Sistem shift 3 kerbau memastikan listrik menyala sepanjang hari tanpa henti.</p></div>
+                    <div class="card"><div class="card-icon"><i class="fas fa-users"></i></div><h3>Pemberdayaan Lokal</h3><p>Membuka lapangan kerja baru bagi peternak dan menciptakan ekonomi sirkular desa.</p></div>
+                </div>
+            </div>
+        </section>
+        <!-- Highlight Numbers -->
+        <section style="background: #f8f9fa;">
+            <div class="container">
+                <div class="section-header"><span class="subtitle">Dalam Angka</span><h2>Dampak Nyata Kerblodaymolis</h2></div>
+                <div class="highlight-grid reveal">
+                    <div class="highlight-item"><div class="num">50+</div><div class="label">Desa Terlistriki</div></div>
+                    <div class="highlight-item"><div class="num">500 kW</div><div class="label">Total Kapasitas</div></div>
+                    <div class="highlight-item"><div class="num">200+</div><div class="label">Peternak Terlibat</div></div>
+                    <div class="highlight-item"><div class="num">0 Ton</div><div class="label">Emisi Karbon</div></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== TENTANG ==================== -->
+    <div id="page-tentang" class="page">
+        <section style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 0;">
+            <div class="container"><div class="section-header"><h2 style="color:white;">Tentang Kami</h2><p style="color:#a5d6a7;">Mengenal lebih dekat PT. Kerblodaymolis Nusantara.</p></div></div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="grid-2 reveal" style="align-items: center;">
+                    <div><img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tentang" style="width:100%; border-radius:20px; box-shadow:var(--shadow);" loading="lazy"></div>
+                    <div>
+                        <h3 style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--primary);">Sejarah & Misi Kami</h3>
+                        <p style="margin:16px 0; color:var(--gray);">PT. Kerblodaymolis Nusantara lahir dari keprihatinan terhadap krisis energi di daerah terpencil Indonesia. Didirikan pada 2020 oleh insinyur dan aktivis lingkungan, kami bertekad menghadirkan listrik bersih yang terjangkau bagi seluruh pelosok negeri.</p>
+                        <p style="color:var(--gray);">Nama <strong>Kerblodaymolis</strong> adalah akronim dari <strong>Kerbau, Blower, Dayung, Motor Listrik</strong> — empat pilar teknologi yang menjadi fondasi inovasi kami.</p>
+                        <div class="info-box"><h4><i class="fas fa-bullseye"></i> Visi Kami</h4><p>Menjadi pelopor energi terbarukan berbasis bio-kinetik yang memberdayakan masyarakat dan melestarikan lingkungan hidup.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== TEKNOLOGI ==================== -->
+    <div id="page-teknologi" class="page">
+        <section style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 0;">
+            <div class="container"><div class="section-header"><h2 style="color:white;">Teknologi Kerblodaymolis</h2><p style="color:#a5d6a7;">Empat pilar inovasi dalam satu sistem pembangkit listrik.</p></div></div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="grid-2 reveal" style="align-items:center; margin-bottom:40px;">
+                    <div><img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kerbau" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div><h3 style="font-size:1.6rem; color:var(--primary);">1. Unit Kerbau <span style="color:var(--accent);">(Bio-Kinetic)</span></h3><p>Kerbau berjalan di treadmill ergonomis bersensor presisi. Gerakan diubah jadi energi putaran. Satu kerbau menghasilkan 1-2 kW daya mekanik secara berkelanjutan. Dilengkapi sensor kesehatan & sistem shift.</p></div>
+                </div>
+                <div class="grid-2 reveal" style="align-items:center; margin-bottom:40px;">
+                    <div style="order:2;"><img src="https://images.unsplash.com/photo-1532601224476-15c79f2f3a87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Blower" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div style="order:1;"><h3 style="font-size:1.6rem; color:var(--primary);">2. Blower <span style="color:var(--accent);">(Akselerator)</span></h3><p>Energi putaran menggerakkan blower 2.5m, menciptakan aliran angin 8-12 m/s terarah ke turbin. Variable speed control & noise reduction.</p></div>
+                </div>
+                <div class="grid-2 reveal" style="align-items:center; margin-bottom:40px;">
+                    <div><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dayung" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div><h3 style="font-size:1.6rem; color:var(--primary);">3. Turbin Dayung <span style="color:var(--accent);">(Mekanik)</span></h3><p>8 bilah aluminium aerodinamis, poros vertikal, gearbox 1:25. RPM 200-400, torsi tinggi untuk generator.</p></div>
+                </div>
+                <div class="grid-2 reveal" style="align-items:center;">
+                    <div style="order:2;"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Motor" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div style="order:1;"><h3 style="font-size:1.6rem; color:var(--primary);">4. Motor Listrik <span style="color:var(--accent);">(Output)</span></h3><p>Generator magnet permanen 3-phase, bank baterai 40 kWh, inverter hybrid. Monitoring IoT real-time 24/7.</p></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== KEUNGGULAN ==================== -->
+    <div id="page-keunggulan" class="page">
+        <section style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 0;">
+            <div class="container"><div class="section-header"><h2 style="color:white;">Keunggulan Kompetitif</h2><p style="color:#a5d6a7;">Mengapa Kerblodaymolis unggul dibanding pembangkit lain.</p></div></div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="grid-2 reveal" style="align-items:center; margin-bottom:40px;">
+                    <div><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ramah Lingkungan" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div>
+                        <h3 style="font-size:1.6rem; color:var(--primary);">Ramah Lingkungan</h3>
+                        <p>Tanpa emisi karbon, tanpa limbah berbahaya. Kerbau menghasilkan pupuk organik sebagai produk sampingan yang bermanfaat bagi pertanian sekitar.</p>
+                        <ul class="feature-list" style="margin-top:15px;">
+                            <li><i class="fas fa-check-circle"></i> <span><strong>Zero emisi</strong> — tidak ada pembakaran</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span><strong>Pupuk organik</strong> dari kotoran kerbau</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span><strong>Tanpa polusi suara</strong> signifikan</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid-2 reveal" style="align-items:center; margin-bottom:40px;">
+                    <div style="order:2;"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ekonomis" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div style="order:1;">
+                        <h3 style="font-size:1.6rem; color:var(--primary);">Ekonomis & Terjangkau</h3>
+                        <p>Biaya operasional sangat rendah karena hanya membutuhkan pakan kerbau. Tidak bergantung pada bahan bakar impor. Masyarakat desa dapat mengelola secara mandiri.</p>
+                        <ul class="feature-list" style="margin-top:15px;">
+                            <li><i class="fas fa-check-circle"></i> <span><strong>Hemat 70%</strong> vs genset diesel</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span><strong>Perawatan mudah</strong> oleh tenaga lokal</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span><strong>Suku cadang</strong> tersedia di dalam negeri</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="grid-2 reveal" style="align-items:center;">
+                    <div><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sosial" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div>
+                        <h3 style="font-size:1.6rem; color:var(--primary);">Dampak Sosial Positif</h3>
+                        <p>Memberdayakan peternak lokal, menciptakan lapangan kerja, dan mendorong kemandirian energi desa. Listrik 24 jam membuka akses pendidikan dan ekonomi.</p>
+                        <ul class="feature-list" style="margin-top:15px;">
+                            <li><i class="fas fa-check-circle"></i> <span><strong>200+ peternak</strong> telah terlibat</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span><strong>Desa mandiri energi</strong> tanpa PLN</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span><strong>Pendapatan tambahan</strong> bagi warga</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== WAWASAN / ARTIKEL ==================== -->
+    <div id="page-artikel" class="page">
+        <section style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 0;">
+            <div class="container"><div class="section-header"><h2 style="color:white;">Wawasan & Edukasi</h2><p style="color:#a5d6a7;">Memahami lebih dalam tentang teknologi dan manfaat Kerblodaymolis.</p></div></div>
+        </section>
+        <section style="background: white;">
+            <div class="container">
+                <div class="grid-3 reveal">
+                    <div class="article-card">
+                        <div class="article-img" style="background-image:url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80');"><span class="article-category">Pengertian</span></div>
+                        <div class="article-body"><h3>Apa Itu Kerblodaymolis? Pengertian Lengkap</h3><p>Kerblodaymolis adalah sistem pembangkit listrik yang mengubah energi gerak kerbau menjadi listrik melalui blower, dayung, dan motor listrik. Sebuah inovasi energi terbarukan khas Indonesia.</p><a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <div class="article-card">
+                        <div class="article-img" style="background-image:url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80');"><span class="article-category">Keunggulan</span></div>
+                        <div class="article-body"><h3>7 Alasan Memilih Kerblodaymolis untuk Desa Anda</h3><p>Dari biaya rendah hingga ramah lingkungan, inilah alasan mengapa Kerblodaymolis adalah pilihan terbaik untuk elektrifikasi pedesaan.</p><a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <div class="article-card">
+                        <div class="article-img" style="background-image:url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600&q=80');"><span class="article-category">Panduan</span></div>
+                        <div class="article-body"><h3>Bagaimana Cara Kerja Sistem Kerblodaymolis?</h3><p>Penjelasan langkah demi langkah: dari kerbau berjalan, blower berputar, dayung menggerakkan generator, hingga listrik tersimpan di baterai.</p><a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <div class="article-card">
+                        <div class="article-img" style="background-image:url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80');"><span class="article-category">Perbandingan</span></div>
+                        <div class="article-body"><h3>Kerblodaymolis vs Panel Surya: Mana Lebih Baik?</h3><p>Perbandingan objektif antara PLT Kerblodaymolis dan panel surya dari segi biaya, kontinuitas, dan dampak lingkungan.</p><a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <div class="article-card">
+                        <div class="article-img" style="background-image:url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&q=80');"><span class="article-category">Dampak</span></div>
+                        <div class="article-body"><h3>Manfaat Ekonomi Kerblodaymolis bagi Masyarakat Desa</h3><p>Bagaimana satu unit pembangkit menciptakan lapangan kerja, pendapatan tambahan, dan kemandirian energi bagi ratusan keluarga.</p><a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                    <div class="article-card">
+                        <div class="article-img" style="background-image:url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80');"><span class="article-category">Masa Depan</span></div>
+                        <div class="article-body"><h3>Visi Kerblodaymolis: 1000 Desa Mandiri Energi 2030</h3><p>Rencana ekspansi dan target ambisius kami untuk menghadirkan listrik bersih ke seluruh pelosok Indonesia.</p><a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== FAQ ==================== -->
+    <div id="page-faq" class="page">
+        <section style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 0;">
+            <div class="container"><div class="section-header"><h2 style="color:white;">Pertanyaan Umum</h2><p style="color:#a5d6a7;">Semua yang perlu Anda ketahui tentang Kerblodaymolis.</p></div></div>
+        </section>
+        <section>
+            <div class="container" style="max-width: 800px;">
+                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Apa itu Kerblodaymolis? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Kerblodaymolis adalah sistem pembangkit listrik inovatif yang memanfaatkan energi gerak kerbau yang dikonversi melalui blower, turbin dayung, dan motor listrik menjadi listrik siap pakai. Singkatan dari <strong>Kerbau, Blower, Dayung, Motor Listrik</strong>.</p></div></div>
+                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Berapa kapasitas listrik yang dihasilkan? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Satu unit standar menghasilkan <strong>20-30 kW</strong>, cukup untuk 50-100 rumah tangga. Produksi harian mencapai <strong>720 kWh</strong> dengan sistem shift 3 kerbau.</p></div></div>
+                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Apakah kerbau dieksploitasi? <i class="fas fa-plus"></i></div><div class="faq-answer"><p><strong>Tidak sama sekali.</strong> Kerbau hanya berjalan santai di treadmill seperti sedang merumput. Dilengkapi sensor kesehatan, jam kerja terbatas (shift), dan istirahat cukup. Kesejahteraan hewan adalah prioritas kami.</p></div></div>
+                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Berapa biaya instalasinya? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Biaya bervariasi tergantung kapasitas dan lokasi. Namun secara umum <strong>jauh lebih murah</strong> dibanding pembangkit diesel dalam jangka panjang. Hubungi kami untuk penawaran khusus.</p></div></div>
+                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Apa keunggulan dibanding genset diesel? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Biaya operasional <strong>70% lebih rendah</strong>, tidak ada emisi, tidak bergantung BBM impor, suara lebih senyap, dan memberdayakan ekonomi lokal.</p></div></div>
+                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Apakah tersedia garansi? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Ya, kami memberikan <strong>garansi 2 tahun</strong> untuk seluruh komponen dan dukungan teknis seumur hidup. Tim teknisi kami siap membantu kapan saja.</p></div></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== KONTAK ==================== -->
+    <div id="page-kontak" class="page">
+        <section style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 0;">
+            <div class="container"><div class="section-header"><h2 style="color:white;">Hubungi Kami</h2><p style="color:#a5d6a7;">Konsultasi gratis untuk solusi energi desa dan industri kecil.</p></div></div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="grid-2 reveal">
+                    <div>
+                        <h3 style="font-size:1.5rem; color:var(--primary); margin-bottom:16px;">Kirim Pesan</h3>
+                        <form class="contact-form">
+                            <input type="text" placeholder="Nama Lengkap" required>
+                            <input type="email" placeholder="Email" required>
+                            <input type="tel" placeholder="Nomor Telepon">
+                            <select><option>Pilih Keperluan</option><option>Konsultasi Teknis</option><option>Penawaran Kerjasama</option><option>Informasi Produk</option><option>Lainnya</option></select>
+                            <textarea rows="4" placeholder="Pesan Anda..."></textarea>
+                            <button type="submit" class="btn btn-primary" style="width:100%;">Kirim Pesan <i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                    <div>
+                        <h3 style="font-size:1.5rem; color:var(--primary); margin-bottom:16px;">Informasi Kontak</h3>
+                        <div class="info-box" style="border-radius:14px;">
+                            <p><i class="fas fa-map-marker-alt" style="color:var(--accent); margin-right:8px;"></i><strong>Alamat:</strong><br>Jl. Energi Baru No. 45, Kawasan Sains & Teknologi, Yogyakarta 55281</p>
+                            <p style="margin-top:10px;"><i class="fas fa-phone" style="color:var(--accent); margin-right:8px;"></i><strong>Telepon:</strong> +62 812-3456-7890</p>
+                            <p style="margin-top:10px;"><i class="fas fa-envelope" style="color:var(--accent); margin-right:8px;"></i><strong>Email:</strong> info@kerblodaymolis.co.id</p>
+                            <p style="margin-top:10px;"><i class="fas fa-clock" style="color:var(--accent); margin-right:8px;"></i><strong>Jam Operasional:</strong><br>Senin - Jumat: 08.00 - 17.00 WIB</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div><h4>PT. Kerblodaymolis Nusantara</h4><p style="font-size:0.85rem;">Inovasi energi hijau berbasis kearifan lokal untuk Indonesia yang lebih bersih dan mandiri energi.</p></div>
+                <div><h4>Navigasi</h4><ul><li><a href="#home" onclick="navigateTo('home')">Beranda</a></li><li><a href="#tentang" onclick="navigateTo('tentang')">Tentang</a></li><li><a href="#teknologi" onclick="navigateTo('teknologi')">Teknologi</a></li><li><a href="#keunggulan" onclick="navigateTo('keunggulan')">Keunggulan</a></li></ul></div>
+                <div><h4>Layanan</h4><ul><li><a href="#">Konsultasi</a></li><li><a href="#">Instalasi</a></li><li><a href="#">Maintenance</a></li><li><a href="#">Training</a></li></ul></div>
+                <div><h4>Ikuti Kami</h4><ul><li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li><li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li><li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 PT. Kerblodaymolis Nusantara. Seluruh hak cipta dilindungi.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', () => { setTimeout(() => { document.getElementById('preloader').classList.add('hidden'); }, 400); });
+
+        // Toggle Mobile Menu
+        function toggleMenu() { document.getElementById('mainNav').classList.toggle('open'); }
+
+        // Navigasi
+        function navigateTo(pageName) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById('page-' + pageName);
+            if (target) target.classList.add('active');
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-page') === pageName) link.classList.add('active');
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.location.hash = pageName;
+            document.getElementById('mainNav').classList.remove('open');
+        }
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                navigateTo(this.getAttribute('data-page'));
+            });
+        });
+
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById('page-' + hash)) navigateTo(hash);
+        });
+        if (window.location.hash) {
+            const hash = window.location.hash.replace('#', '');
+            if (document.getElementById('page-' + hash)) navigateTo(hash);
+        }
+
+        // FAQ Toggle
+        function toggleFAQ(el) { el.parentElement.classList.toggle('open'); }
+
+        // Header Scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('mainHeader').classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.15 });
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
