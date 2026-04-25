@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT. KERBLODAYMOLIS Nusantara - Revolusi Energi Hijau Indonesia</title>
+    <title>KERBLODAYMOLIS - Integrated Hybrid Rotational Energy System</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -52,8 +52,7 @@
 
         /* Top Bar */
         .top-bar {
-            background: #111;
-            color: #aaa; padding: 8px 0; font-size: 0.8rem; z-index: 1001; position: relative;
+            background: #111; color: #aaa; padding: 8px 0; font-size: 0.8rem; z-index: 1001; position: relative;
         }
         .top-bar .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; align-items: center; }
         .top-bar a { color: #aaa; text-decoration: none; margin-left: 12px; transition: 0.3s; font-size: 0.8rem; }
@@ -90,7 +89,7 @@
         nav a:hover, nav a.active { background: var(--accent); color: var(--primary); font-weight: 700; }
         .btn-nav { background: var(--accent); color: var(--primary) !important; font-weight: 700; padding: 11px 20px; }
 
-        /* Hamburger Menu */
+        /* Hamburger */
         .hamburger { display: none; cursor: pointer; background: none; border: none; color: white; font-size: 1.6rem; }
         @media (max-width: 992px) {
             .hamburger { display: block; }
@@ -103,7 +102,7 @@
             .logo-icon i { font-size: 1.2rem; }
         }
 
-        /* Halaman */
+        /* Page System */
         .page { display: none; animation: fadeSlideIn 0.5s ease; }
         .page.active { display: block; }
         @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
@@ -119,15 +118,15 @@
             content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 120px;
             background: linear-gradient(to top, var(--primary), transparent);
         }
-        .hero-content { position: relative; z-index: 2; max-width: 750px; padding: 40px 0; }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; padding: 40px 0; }
         .hero-badge {
             display: inline-block; background: rgba(255,179,0,0.2); border: 1px solid var(--accent);
             padding: 8px 18px; border-radius: 30px; font-weight: 600; font-size: 0.85rem;
             margin-bottom: 20px; letter-spacing: 2px;
         }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 800; line-height: 1.15; margin-bottom: 18px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 18px; }
         .hero h1 span { background: linear-gradient(45deg, #ffb300, #ffd54f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; max-width: 550px; }
+        .hero p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9; max-width: 600px; }
         .hero-stats { display: flex; gap: 30px; flex-wrap: wrap; margin-top: 15px; }
         .stat-item h3 { font-size: 2.2rem; color: var(--accent); font-weight: 800; }
         .stat-item p { font-size: 0.85rem; margin: 0; opacity: 0.7; }
@@ -142,7 +141,6 @@
         .btn-primary:hover { background: #ffa000; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(255,179,0,0.4); }
         .btn-outline { border: 2px solid white; color: white; margin-left: 12px; }
         .btn-outline:hover { background: white; color: var(--primary); }
-        .btn-sm { padding: 8px 18px; font-size: 0.8rem; }
 
         /* Section */
         section { padding: 70px 0; }
@@ -164,7 +162,7 @@
             .grid-2 { grid-template-columns: 1fr; }
             .grid-3 { grid-template-columns: 1fr; }
             .grid-4 { grid-template-columns: 1fr 1fr; }
-            .hero h1 { font-size: 2rem; }
+            .hero h1 { font-size: 1.9rem; }
             .hero p { font-size: 0.9rem; }
             .hero-stats { gap: 15px; }
             .stat-item h3 { font-size: 1.5rem; }
@@ -180,9 +178,6 @@
         .card-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 16px; }
         .card h3 { font-size: 1.25rem; margin-bottom: 10px; color: var(--primary); }
         .card p { color: var(--gray); font-size: 0.9rem; }
-        .card .read-more { display: inline-block; margin-top: 12px; color: var(--secondary); font-weight: 600; text-decoration: none; }
-        .card:hover .read-more i { transform: translateX(5px); }
-        .read-more i { transition: 0.3s; }
 
         /* Article Card */
         .article-card {
@@ -196,15 +191,8 @@
             padding: 5px 14px; border-radius: 20px; font-weight: 700; font-size: 0.75rem;
         }
         .article-body { padding: 20px; }
-        .article-body .date { color: var(--gray); font-size: 0.8rem; margin-bottom: 8px; }
         .article-body h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--primary); }
         .article-body p { color: var(--gray); font-size: 0.85rem; }
-
-        /* Feature List */
-        .feature-list { list-style: none; }
-        .feature-list li { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 12px; }
-        .feature-list li i { color: var(--accent); margin-top: 4px; font-size: 1rem; }
-        .feature-list li strong { color: var(--primary); }
 
         /* Info Box */
         .info-box {
@@ -214,11 +202,46 @@
         .info-box h4 { color: var(--primary); margin-bottom: 8px; font-size: 1.1rem; }
         .info-box p { color: #555; font-size: 0.9rem; }
 
-        /* Highlight Number */
-        .highlight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; text-align: center; }
-        .highlight-item { background: white; padding: 25px 15px; border-radius: var(--radius); box-shadow: var(--shadow); }
-        .highlight-item .num { font-size: 2.5rem; font-weight: 800; color: var(--accent); }
+        /* Warning Box */
+        .warning-box {
+            background: linear-gradient(135deg, #fff8e1, #fff3cd);
+            border-left: 5px solid #ff9800;
+            padding: 25px 30px; border-radius: 0 var(--radius) var(--radius) 0; margin: 25px 0;
+        }
+        .warning-box h4 { color: #e65100; margin-bottom: 8px; font-size: 1.1rem; }
+        .warning-box p { color: #555; font-size: 0.9rem; }
+
+        /* Highlight Item */
+        .highlight-item { background: white; padding: 25px 15px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; }
+        .highlight-item .num { font-size: 2.2rem; font-weight: 800; color: var(--accent); }
         .highlight-item .label { font-size: 0.85rem; color: var(--gray); margin-top: 4px; }
+
+        /* Feature List */
+        .feature-list { list-style: none; }
+        .feature-list li { padding: 10px 0; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 12px; }
+        .feature-list li i { color: var(--accent); margin-top: 4px; font-size: 1rem; }
+        .feature-list li strong { color: var(--primary); }
+
+        /* Spec Table */
+        .spec-table { overflow-x: auto; margin: 20px 0; }
+        .spec-table table { width: 100%; border-collapse: collapse; background: white; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+        .spec-table th { background: var(--secondary); color: white; padding: 14px 16px; text-align: left; font-size: 0.9rem; }
+        .spec-table td { padding: 12px 16px; border-bottom: 1px solid #e0e0e0; font-size: 0.9rem; }
+        .spec-table tr:hover td { background: #f1f8e9; }
+        .spec-table .highlight { font-weight: 700; color: var(--secondary); }
+
+        /* Flow Diagram */
+        .flow-diagram {
+            display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center;
+            padding: 20px; background: white; border-radius: var(--radius); box-shadow: var(--shadow);
+            margin: 25px 0;
+        }
+        .flow-box {
+            background: #f1f8e9; border: 2px solid var(--secondary); padding: 14px 18px;
+            border-radius: 12px; text-align: center; font-weight: 600; font-size: 0.9rem; color: var(--primary);
+            min-width: 100px;
+        }
+        .flow-arrow { font-size: 1.5rem; color: var(--accent); font-weight: 700; }
 
         /* FAQ */
         .faq-item {
@@ -235,7 +258,7 @@
         .faq-item.open .faq-question { background: #f1f8e9; color: var(--secondary); }
         .faq-item.open .faq-question i { transform: rotate(45deg); }
 
-        /* Contact Form */
+        /* Contact */
         .contact-form input, .contact-form textarea, .contact-form select {
             width: 100%; padding: 13px 16px; border: 2px solid #e0e0e0; border-radius: 12px;
             font-family: 'Poppins', sans-serif; font-size: 0.95rem; transition: 0.3s;
@@ -253,9 +276,15 @@
         .footer-grid ul li a:hover { color: var(--accent); }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 18px; text-align: center; font-size: 0.8rem; }
 
-        /* Animasi Scroll Reveal */
+        /* Reveal */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* Section Divider */
+        .section-dark { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 0; }
+        .section-dark h2 { color: white !important; }
+        .section-dark p { color: #a5d6a7 !important; }
+        .section-dark .subtitle { background: rgba(255,179,0,0.2); color: #ffb300; }
     </style>
 </head>
 <body>
@@ -279,16 +308,17 @@
         <div class="container nav-container">
             <div class="logo" onclick="navigateTo('home')">
                 <div class="logo-icon"><i class="fas fa-bolt"></i></div>
-                <div class="logo-text"><h2>KERBLODAYMOLIS</h2><p>Energi Nusantara</p></div>
+                <div class="logo-text"><h2>KERBLODAYMOLIS</h2><p>Integrated Hybrid Rotational Energy System</p></div>
             </div>
             <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><i class="fas fa-bars"></i></button>
             <nav id="mainNav">
                 <ul>
                     <li><a href="#home" class="nav-link active" data-page="home">Beranda</a></li>
-                    <li><a href="#tentang" class="nav-link" data-page="tentang">Tentang</a></li>
-                    <li><a href="#teknologi" class="nav-link" data-page="teknologi">Teknologi</a></li>
-                    <li><a href="#keunggulan" class="nav-link" data-page="keunggulan">Keunggulan</a></li>
-                    <li><a href="#artikel" class="nav-link" data-page="artikel">Wawasan</a></li>
+                    <li><a href="#konsep" class="nav-link" data-page="konsep">Konsep</a></li>
+                    <li><a href="#hewan" class="nav-link" data-page="hewan">Power Plant Hewan</a></li>
+                    <li><a href="#dayung" class="nav-link" data-page="dayung">Power Plant Dayung</a></li>
+                    <li><a href="#utama" class="nav-link" data-page="utama">Pembangkit Utama</a></li>
+                    <li><a href="#alur" class="nav-link" data-page="alur">Alur Energi</a></li>
                     <li><a href="#faq" class="nav-link" data-page="faq">FAQ</a></li>
                     <li><a href="#kontak" class="nav-link btn-nav" data-page="kontak">Hubungi Kami</a></li>
                 </ul>
@@ -301,176 +331,308 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <div class="hero-badge"><i class="fas fa-leaf"></i> INOVASI ENERGI HIJAU 2025</div>
-                    <h1>Pembangkit Listrik Tenaga <span>Kerblodaymolis</span></h1>
-                    <p>Revolusi energi terbarukan Indonesia — memadukan <strong>Kerbau, Blower, Dayung & Motor Listrik</strong> menjadi pembangkit listrik ramah lingkungan, murah, dan berkelanjutan.</p>
+                    <div class="hero-badge"><i class="fas fa-microchip"></i> INTEGRATED HYBRID ROTATIONAL ENERGY SYSTEM</div>
+                    <h1>Sistem Pembangkit Listrik <span>KERBLODAYMOLIS</span></h1>
+                    <p>Sistem <strong>penggabungan dan penguatan putaran (Energy Aggregation System)</strong> yang mengintegrasikan Power Plant Tenaga Hewan, Power Plant Tenaga Dayung, dan Pembangkit Utama Blower – Motor Listrik dalam satu arsitektur terpadu.</p>
                     <div class="hero-stats">
-                        <div class="stat-item"><h3>30 kW</h3><p>Kapasitas Unit</p></div>
-                        <div class="stat-item"><h3>720 kWh</h3><p>Produksi / Hari</p></div>
-                        <div class="stat-item"><h3>0 Emisi</h3><p>100% Hijau</p></div>
+                        <div class="stat-item"><h3>Multi-Input</h3><p>Banyak Sumber Energi</p></div>
+                        <div class="stat-item"><h3>Flywheel</h3><p>Stabilisator Energi</p></div>
+                        <div class="stat-item"><h3>Hybrid</h3><p>Mekanik & Listrik</p></div>
                     </div>
                     <div style="margin-top: 25px;">
-                        <a href="#teknologi" class="btn btn-primary" onclick="navigateTo('teknologi')"><i class="fas fa-play-circle"></i> Pelajari Teknologi</a>
-                        <a href="#kontak" class="btn btn-outline" onclick="navigateTo('kontak')"><i class="fas fa-headset"></i> Konsultasi Gratis</a>
+                        <a href="#konsep" class="btn btn-primary" onclick="navigateTo('konsep')"><i class="fas fa-sitemap"></i> Arsitektur Sistem</a>
+                        <a href="#alur" class="btn btn-outline" onclick="navigateTo('alur')"><i class="fas fa-project-diagram"></i> Alur Energi</a>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Ringkasan Keunggulan -->
+
+        <!-- Ringkasan Sistem -->
         <section style="background: white;">
             <div class="container">
                 <div class="section-header">
-                    <span class="subtitle">Mengapa Kerblodaymolis?</span>
-                    <h2>Solusi Energi Masa Depan</h2>
-                    <p>Kami menghadirkan pembangkit listrik yang tidak hanya bersih, tetapi juga memberdayakan masyarakat dan ekonomi lokal.</p>
+                    <span class="subtitle">Arsitektur Operasional</span>
+                    <h2>Sistem Terpisah & Terintegrasi</h2>
+                    <p>Setiap sumber energi dibangun sebagai <strong>unit pembangkit mandiri (sub-power plant)</strong>, kemudian seluruh output listriknya dikumpulkan dan disalurkan ke <strong>Pembangkit Utama (Main Power Plant)</strong> yaitu Power Plant Tenaga Blower – Motor Listrik.</p>
                 </div>
-                <div class="grid-4 reveal">
-                    <div class="card"><div class="card-icon"><i class="fas fa-seedling"></i></div><h3>Zero Emission</h3><p>Tanpa pembakaran fosil. Hanya gerakan alami kerbau dan sirkulasi udara bersih.</p></div>
-                    <div class="card"><div class="card-icon"><i class="fas fa-coins"></i></div><h3>Biaya Rendah</h3><p>Pakan kerbau jauh lebih ekonomis dibanding solar atau batu bara. Hemat hingga 70%.</p></div>
-                    <div class="card"><div class="card-icon"><i class="fas fa-sync-alt"></i></div><h3>Kontinu 24/7</h3><p>Sistem shift 3 kerbau memastikan listrik menyala sepanjang hari tanpa henti.</p></div>
-                    <div class="card"><div class="card-icon"><i class="fas fa-users"></i></div><h3>Pemberdayaan Lokal</h3><p>Membuka lapangan kerja baru bagi peternak dan menciptakan ekonomi sirkular desa.</p></div>
+                <div class="grid-3 reveal">
+                    <div class="card"><div class="card-icon"><i class="fas fa-hippo"></i></div><h3>Power Plant Tenaga Hewan</h3><p>Unit mandiri berbasis flywheel sumbu vertikal digerakkan oleh kerbau, sapi, kuda, atau hewan lain secara bergantian. Output listrik di-step-up dan dikirim ke sistem utama.</p></div>
+                    <div class="card"><div class="card-icon"><i class="fas fa-water"></i></div><h3>Power Plant Tenaga Dayung</h3><p>Unit terpisah menggunakan tenaga manusia atau sistem robotik. Konstruksi mekanik serupa: flywheel vertikal, bantalan bola baja, percepatan mekanik, step-up tegangan.</p></div>
+                    <div class="card"><div class="card-icon"><i class="fas fa-fan"></i></div><h3>Pembangkit Utama (Blower – Motor)</h3><p>Inti sistem. Flywheel besar ber-inersia tinggi, blower sentrifugal tekanan tinggi, sudu turbin aerodinamis, motor listrik pendukung, dan generator output utama.</p></div>
                 </div>
             </div>
         </section>
-        <!-- Highlight Numbers -->
+
+        <!-- Highlight -->
         <section style="background: #f8f9fa;">
             <div class="container">
-                <div class="section-header"><span class="subtitle">Dalam Angka</span><h2>Dampak Nyata Kerblodaymolis</h2></div>
-                <div class="highlight-grid reveal">
-                    <div class="highlight-item"><div class="num">50+</div><div class="label">Desa Terlistriki</div></div>
-                    <div class="highlight-item"><div class="num">500 kW</div><div class="label">Total Kapasitas</div></div>
-                    <div class="highlight-item"><div class="num">200+</div><div class="label">Peternak Terlibat</div></div>
-                    <div class="highlight-item"><div class="num">0 Ton</div><div class="label">Emisi Karbon</div></div>
+                <div class="section-header"><span class="subtitle">Spesifikasi Teknis</span><h2>Parameter Sistem</h2></div>
+                <div class="spec-table reveal">
+                    <table>
+                        <tr><th>Komponen</th><th>Spesifikasi</th><th>Fungsi</th></tr>
+                        <tr><td>Flywheel (Hewan & Dayung)</td><td class="highlight">Diameter 5–40 m, Berat 20–400 ton</td><td>Penyimpan energi mekanik</td></tr>
+                        <tr><td>Sistem Bantalan</td><td class="highlight">Ribuan bola baja</td><td>Low resistance system</td></tr>
+                        <tr><td>Sistem Percepatan</td><td class="highlight">Gear / transmisi mekanik</td><td>Meningkatkan RPM rendah ke tinggi</td></tr>
+                        <tr><td>Blower Utama</td><td class="highlight">Kipas sentrifugal tekanan tinggi</td><td>Menyemprotkan udara ke sudu turbin</td></tr>
+                        <tr><td>Motor Listrik</td><td class="highlight">Terhubung ke poros utama</td><td>Starter awal, penstabil RPM, booster torsi</td></tr>
+                        <tr><td>Generator</td><td class="highlight">Output utama</td><td>Menghasilkan listrik dari putaran flywheel</td></tr>
+                    </table>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- ==================== TENTANG ==================== -->
-    <div id="page-tentang" class="page">
-        <section style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 0;">
-            <div class="container"><div class="section-header"><h2 style="color:white;">Tentang Kami</h2><p style="color:#a5d6a7;">Mengenal lebih dekat PT. Kerblodaymolis Nusantara.</p></div></div>
+    <!-- ==================== KONSEP ==================== -->
+    <div id="page-konsep" class="page">
+        <section class="section-dark">
+            <div class="container"><div class="section-header"><span class="subtitle">Arsitektur</span><h2>Konsep Umum Sistem Terpisah & Terintegrasi</h2><p>Memahami bagaimana sub-power plant bekerja secara mandiri dan terhubung dalam satu sistem utama.</p></div></div>
         </section>
         <section>
             <div class="container">
-                <div class="grid-2 reveal" style="align-items: center;">
-                    <div><img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tentang" style="width:100%; border-radius:20px; box-shadow:var(--shadow);" loading="lazy"></div>
+                <div class="grid-2 reveal" style="align-items:center;">
+                    <div><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sistem Terintegrasi" style="width:100%; border-radius:20px;" loading="lazy"></div>
                     <div>
-                        <h3 style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--primary);">Sejarah & Misi Kami</h3>
-                        <p style="margin:16px 0; color:var(--gray);">PT. Kerblodaymolis Nusantara lahir dari keprihatinan terhadap krisis energi di daerah terpencil Indonesia. Didirikan pada 2020 oleh insinyur dan aktivis lingkungan, kami bertekad menghadirkan listrik bersih yang terjangkau bagi seluruh pelosok negeri.</p>
-                        <p style="color:var(--gray);">Nama <strong>Kerblodaymolis</strong> adalah akronim dari <strong>Kerbau, Blower, Dayung, Motor Listrik</strong> — empat pilar teknologi yang menjadi fondasi inovasi kami.</p>
-                        <div class="info-box"><h4><i class="fas fa-bullseye"></i> Visi Kami</h4><p>Menjadi pelopor energi terbarukan berbasis bio-kinetik yang memberdayakan masyarakat dan melestarikan lingkungan hidup.</p></div>
+                        <h3 style="font-size:1.6rem; color:var(--primary);">Desain Sistem Multi-Input</h3>
+                        <p>Sistem KERBLODAYMOLIS dirancang sebagai <strong>kombinasi beberapa pembangkit terpisah (sub-power plant)</strong> yang saling terhubung dalam satu sistem utama.</p>
+                        <ul class="feature-list" style="margin-top:15px;">
+                            <li><i class="fas fa-check-circle"></i> <span>Setiap sumber energi dibangun sebagai <strong>unit pembangkit mandiri</strong></span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Seluruh output listrik dikumpulkan & disalurkan ke <strong>Pembangkit Utama</strong></span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Pembangkit Utama = <strong>Power Plant Tenaga Blower – Motor Listrik</strong></span></li>
+                        </ul>
+                        <div class="info-box"><h4><i class="fas fa-lightbulb"></i> Prinsip Dasar</h4><p>Ini adalah <strong>sistem penggabungan dan penguatan putaran (Energy Aggregation System)</strong>, BUKAN pencipta energi baru. Total energi masuk harus ≥ energi keluar untuk efisiensi optimal.</p></div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- ==================== TEKNOLOGI ==================== -->
-    <div id="page-teknologi" class="page">
-        <section style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 0;">
-            <div class="container"><div class="section-header"><h2 style="color:white;">Teknologi Kerblodaymolis</h2><p style="color:#a5d6a7;">Empat pilar inovasi dalam satu sistem pembangkit listrik.</p></div></div>
+    <!-- ==================== POWER PLANT HEWAN ==================== -->
+    <div id="page-hewan" class="page">
+        <section class="section-dark">
+            <div class="container"><div class="section-header"><span class="subtitle">Sub-Power Plant 1</span><h2>Power Plant Tenaga Hewan</h2><p>Unit pembangkit mandiri berbasis tenaga kerbau, sapi, kuda, dan hewan lainnya.</p></div></div>
         </section>
         <section>
             <div class="container">
+                <!-- Struktur Mekanik -->
                 <div class="grid-2 reveal" style="align-items:center; margin-bottom:40px;">
-                    <div><img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kerbau" style="width:100%; border-radius:20px;" loading="lazy"></div>
-                    <div><h3 style="font-size:1.6rem; color:var(--primary);">1. Unit Kerbau <span style="color:var(--accent);">(Bio-Kinetic)</span></h3><p>Kerbau berjalan di treadmill ergonomis bersensor presisi. Gerakan diubah jadi energi putaran. Satu kerbau menghasilkan 1-2 kW daya mekanik secara berkelanjutan. Dilengkapi sensor kesehatan & sistem shift.</p></div>
+                    <div><img src="https://www.greeners.co/wp-content/uploads/2021/03/Kerbau-1.jpg" alt="Flywheel" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div>
+                        <h3 style="font-size:1.6rem; color:var(--primary);">Struktur Mekanik</h3>
+                        <ul class="feature-list" style="margin-top:15px;">
+                            <li><i class="fas fa-cog"></i> <span><strong>Flywheel sumbu vertikal</strong> — Diameter: 5 – 40 meter</span></li>
+                            <li><i class="fas fa-weight-hanging"></i> <span><strong>Berat flywheel:</strong> 20 – 400 ton (high inertia)</span></li>
+                            <li><i class="fas fa-circle"></i> <span><strong>Sistem bantalan:</strong> ribuan bola baja untuk meminimalkan gesekan (low resistance system)</span></li>
+                        </ul>
+                        <div class="info-box"><h4><i class="fas fa-info-circle"></i> Mengapa Bola Baja?</h4><p>Ribuan bola baja menciptakan permukaan kontak minimal, sehingga gaya gesek hampir nol. Flywheel dapat berputar dengan hambatan sangat rendah.</p></div>
+                    </div>
                 </div>
+
+                <!-- Sistem Penggerak -->
                 <div class="grid-2 reveal" style="align-items:center; margin-bottom:40px;">
-                    <div style="order:2;"><img src="https://images.unsplash.com/photo-1532601224476-15c79f2f3a87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Blower" style="width:100%; border-radius:20px;" loading="lazy"></div>
-                    <div style="order:1;"><h3 style="font-size:1.6rem; color:var(--primary);">2. Blower <span style="color:var(--accent);">(Akselerator)</span></h3><p>Energi putaran menggerakkan blower 2.5m, menciptakan aliran angin 8-12 m/s terarah ke turbin. Variable speed control & noise reduction.</p></div>
+                    <div style="order:2;"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kerbau" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div style="order:1;">
+                        <h3 style="font-size:1.6rem; color:var(--primary);">Sistem Penggerak</h3>
+                        <ul class="feature-list" style="margin-top:15px;">
+                            <li><i class="fas fa-hippo"></i> <span><strong>Tenaga hewan:</strong> Kerbau, Sapi, Kuda, atau hewan lainnya</span></li>
+                            <li><i class="fas fa-sync-alt"></i> <span><strong>Sistem kerja:</strong> Hewan bekerja <strong>bergantian</strong> (misalnya tiap 1 jam) untuk menjaga kontinuitas tenaga</span></li>
+                        </ul>
+                    </div>
                 </div>
+
+                <!-- RPM & Output -->
+                <div class="grid-2 reveal" style="align-items:center;">
+                    <div><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gear" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div>
+                        <h3 style="font-size:1.6rem; color:var(--primary);">RPM Rendah & Output</h3>
+                        <ul class="feature-list" style="margin-top:15px;">
+                            <li><i class="fas fa-tachometer-alt"></i> <span>Tenaga hewan menghasilkan <strong>RPM rendah (low speed)</strong></span></li>
+                            <li><i class="fas fa-gears"></i> <span>Digunakan <strong>sistem percepatan mekanik (gear/transmisi)</strong> untuk meningkatkan kecepatan putar</span></li>
+                            <li><i class="fas fa-bolt"></i> <span><strong>Output:</strong> Energi mekanik → generator → listrik → <strong>step-up tegangan</strong> → kirim ke sistem utama</span></li>
+                        </ul>
+                        <div class="warning-box"><h4><i class="fas fa-exclamation-triangle"></i> Poin Krusial</h4><p>RPM rendah dari tenaga hewan harus ditingkatkan secara mekanik agar sesuai dengan kebutuhan generator. Gearbox presisi tinggi adalah komponen wajib.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== POWER PLANT DAYUNG ==================== -->
+    <div id="page-dayung" class="page">
+        <section class="section-dark">
+            <div class="container"><div class="section-header"><span class="subtitle">Sub-Power Plant 2</span><h2>Power Plant Tenaga Dayung</h2><p>Unit pembangkit mandiri berbasis tenaga manusia atau sistem robotik.</p></div></div>
+        </section>
+        <section>
+            <div class="container">
                 <div class="grid-2 reveal" style="align-items:center; margin-bottom:40px;">
                     <div><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Dayung" style="width:100%; border-radius:20px;" loading="lazy"></div>
-                    <div><h3 style="font-size:1.6rem; color:var(--primary);">3. Turbin Dayung <span style="color:var(--accent);">(Mekanik)</span></h3><p>8 bilah aluminium aerodinamis, poros vertikal, gearbox 1:25. RPM 200-400, torsi tinggi untuk generator.</p></div>
+                    <div>
+                        <h3 style="font-size:1.6rem; color:var(--primary);">Konsep & Desain Mekanik</h3>
+                        <ul class="feature-list" style="margin-top:15px;">
+                            <li><i class="fas fa-cubes"></i> <span>Dibangun sebagai <strong>unit terpisah</strong> dari power plant hewan</span></li>
+                            <li><i class="fas fa-user"></i> <span>Bisa menggunakan <strong>tenaga manusia</strong> atau <strong>sistem robotik</strong></span></li>
+                            <li><i class="fas fa-cog"></i> <span>Desain mekanik <strong>sama dengan sistem tenaga hewan:</strong></span></li>
+                        </ul>
+                        <ul class="feature-list" style="margin-top:5px; padding-left:20px;">
+                            <li><i class="fas fa-circle-notch"></i> <span>Flywheel vertikal</span></li>
+                            <li><i class="fas fa-circle-notch"></i> <span>Sistem bola baja (low resistance)</span></li>
+                            <li><i class="fas fa-circle-notch"></i> <span>RPM rendah → percepatan mekanik</span></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="grid-2 reveal" style="align-items:center;">
-                    <div style="order:2;"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Motor" style="width:100%; border-radius:20px;" loading="lazy"></div>
-                    <div style="order:1;"><h3 style="font-size:1.6rem; color:var(--primary);">4. Motor Listrik <span style="color:var(--accent);">(Output)</span></h3><p>Generator magnet permanen 3-phase, bank baterai 40 kWh, inverter hybrid. Monitoring IoT real-time 24/7.</p></div>
+                    <div style="order:2;"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Output" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div style="order:1;">
+                        <h3 style="font-size:1.6rem; color:var(--primary);">Output & Kontribusi</h3>
+                        <ul class="feature-list" style="margin-top:15px;">
+                            <li><i class="fas fa-bolt"></i> <span>Energi listrik dari sistem dayung <strong>dikonversi</strong></span></li>
+                            <li><i class="fas fa-arrow-up"></i> <span><strong>Dinaikkan tegangannya (step-up)</strong></span></li>
+                            <li><i class="fas fa-arrow-right"></i> <span><strong>Dikirim ke:</strong> Pembangkit Utama (Blower – Motor Listrik)</span></li>
+                        </ul>
+                        <div class="info-box"><h4><i class="fas fa-robot"></i> Fleksibilitas</h4><p>Sistem robotik memungkinkan operasi kontinu tanpa kelelahan. Tenaga manusia bisa menjadi alternatif di daerah dengan ketersediaan tenaga kerja melimpah.</p></div>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- ==================== KEUNGGULAN ==================== -->
-    <div id="page-keunggulan" class="page">
-        <section style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 0;">
-            <div class="container"><div class="section-header"><h2 style="color:white;">Keunggulan Kompetitif</h2><p style="color:#a5d6a7;">Mengapa Kerblodaymolis unggul dibanding pembangkit lain.</p></div></div>
+    <!-- ==================== PEMBANGKIT UTAMA ==================== -->
+    <div id="page-utama" class="page">
+        <section class="section-dark">
+            <div class="container"><div class="section-header"><span class="subtitle">Main Power Plant</span><h2>Pembangkit Utama: Blower – Motor Listrik</h2><p>Inti sistem KERBLODAYMOLIS — pusat agregasi dan penguatan energi.</p></div></div>
         </section>
         <section>
             <div class="container">
+                <!-- Struktur -->
                 <div class="grid-2 reveal" style="align-items:center; margin-bottom:40px;">
-                    <div><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ramah Lingkungan" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div><img src="https://images.unsplash.com/photo-1532601224476-15c79f2f3a87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Blower" style="width:100%; border-radius:20px;" loading="lazy"></div>
                     <div>
-                        <h3 style="font-size:1.6rem; color:var(--primary);">Ramah Lingkungan</h3>
-                        <p>Tanpa emisi karbon, tanpa limbah berbahaya. Kerbau menghasilkan pupuk organik sebagai produk sampingan yang bermanfaat bagi pertanian sekitar.</p>
+                        <h3 style="font-size:1.6rem; color:var(--primary);">Struktur Mekanik Utama</h3>
                         <ul class="feature-list" style="margin-top:15px;">
-                            <li><i class="fas fa-check-circle"></i> <span><strong>Zero emisi</strong> — tidak ada pembakaran</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span><strong>Pupuk organik</strong> dari kotoran kerbau</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span><strong>Tanpa polusi suara</strong> signifikan</span></li>
+                            <li><i class="fas fa-cog"></i> <span><strong>Flywheel sumbu vertikal</strong> — diameter besar, berat tinggi (high inertia system)</span></li>
+                            <li><i class="fas fa-circle"></i> <span>Didukung oleh <strong>sistem bantalan ribuan bola baja</strong></span></li>
                         </ul>
+                        <div class="warning-box"><h4><i class="fas fa-exclamation-triangle"></i> Poin Paling Kritis</h4><p><strong>Blower + Motor Listrik = konsumsi energi besar.</strong> Harus dibuktikan: <strong>Total energi masuk ≥ energi keluar.</strong> Idealnya sistem efisien dan stabil. Ini adalah tantangan engineering utama.</p></div>
                     </div>
                 </div>
+
+                <!-- Blower & Sudu -->
                 <div class="grid-2 reveal" style="align-items:center; margin-bottom:40px;">
-                    <div style="order:2;"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ekonomis" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div style="order:2;"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Turbin" style="width:100%; border-radius:20px;" loading="lazy"></div>
                     <div style="order:1;">
-                        <h3 style="font-size:1.6rem; color:var(--primary);">Ekonomis & Terjangkau</h3>
-                        <p>Biaya operasional sangat rendah karena hanya membutuhkan pakan kerbau. Tidak bergantung pada bahan bakar impor. Masyarakat desa dapat mengelola secara mandiri.</p>
+                        <h3 style="font-size:1.6rem; color:var(--primary);">Blower & Desain Sudu (Blade)</h3>
                         <ul class="feature-list" style="margin-top:15px;">
-                            <li><i class="fas fa-check-circle"></i> <span><strong>Hemat 70%</strong> vs genset diesel</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span><strong>Perawatan mudah</strong> oleh tenaga lokal</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span><strong>Suku cadang</strong> tersedia di dalam negeri</span></li>
+                            <li><i class="fas fa-fan"></i> <span><strong>Blower:</strong> Kipas sentrifugal tekanan tinggi</span></li>
+                            <li><i class="fas fa-wind"></i> <span>Fungsi: <strong>Menyemprotkan udara bertekanan</strong> ke sudu turbin</span></li>
+                            <li><i class="fas fa-dharmachakra"></i> <span>Menghasilkan <strong>gaya dorong (torsi)</strong> pada flywheel</span></li>
+                            <li><i class="fas fa-shapes"></i> <span><strong>Sudu (Blade):</strong> Terpasang pada flywheel, bentuk aerodinamis, disusun simetris</span></li>
+                            <li><i class="fas fa-exchange-alt"></i> <span>Fungsi sudu: <strong>Mengubah energi aliran udara menjadi putaran</strong></span></li>
                         </ul>
                     </div>
                 </div>
-                <div class="grid-2 reveal" style="align-items:center;">
-                    <div><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sosial" style="width:100%; border-radius:20px;" loading="lazy"></div>
+
+                <!-- Motor Listrik -->
+                <div class="grid-2 reveal" style="align-items:center; margin-bottom:40px;">
+                    <div><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Motor" style="width:100%; border-radius:20px;" loading="lazy"></div>
                     <div>
-                        <h3 style="font-size:1.6rem; color:var(--primary);">Dampak Sosial Positif</h3>
-                        <p>Memberdayakan peternak lokal, menciptakan lapangan kerja, dan mendorong kemandirian energi desa. Listrik 24 jam membuka akses pendidikan dan ekonomi.</p>
+                        <h3 style="font-size:1.6rem; color:var(--primary);">Motor Listrik Pendukung</h3>
                         <ul class="feature-list" style="margin-top:15px;">
-                            <li><i class="fas fa-check-circle"></i> <span><strong>200+ peternak</strong> telah terlibat</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span><strong>Desa mandiri energi</strong> tanpa PLN</span></li>
-                            <li><i class="fas fa-check-circle"></i> <span><strong>Pendapatan tambahan</strong> bagi warga</span></li>
+                            <li><i class="fas fa-plug"></i> <span>Terhubung ke <strong>poros utama</strong></span></li>
+                            <li><i class="fas fa-play"></i> <span>Fungsi: <strong>Starter awal</strong></span></li>
+                            <li><i class="fas fa-tachometer-alt"></i> <span>Fungsi: <strong>Penstabil RPM</strong></span></li>
+                            <li><i class="fas fa-rocket"></i> <span>Fungsi: <strong>Booster torsi</strong></span></li>
                         </ul>
+                    </div>
+                </div>
+
+                <!-- Sumber Energi Masuk & Start Awal -->
+                <div class="grid-2 reveal" style="align-items:center;">
+                    <div style="order:2;"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Solar" style="width:100%; border-radius:20px;" loading="lazy"></div>
+                    <div style="order:1;">
+                        <h3 style="font-size:1.6rem; color:var(--primary);">Sumber Energi Masuk & Start Awal</h3>
+                        <ul class="feature-list" style="margin-top:15px;">
+                            <li><i class="fas fa-bolt"></i> <span>Pembangkit utama menerima suplai dari: <strong>Power Plant Tenaga Hewan</strong></span></li>
+                            <li><i class="fas fa-bolt"></i> <span>Pembangkit utama menerima suplai dari: <strong>Power Plant Tenaga Dayung</strong></span></li>
+                            <li><i class="fas fa-plus-circle"></i> <span>(Opsional) sumber lain</span></li>
+                            <li><i class="fas fa-layer-group"></i> <span>Semua energi ini <strong>digabungkan sebagai input listrik sistem utama</strong></span></li>
+                        </ul>
+                        <div class="info-box"><h4><i class="fas fa-sun"></i> Sistem Start Awal (Initial Start-Up)</h4><p>Untuk memulai sistem dari kondisi diam: <strong>digunakan blower bertenaga listrik dari energi surya.</strong> Setelah sistem stabil, dibantu oleh input dari unit lain.</p></div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- ==================== WAWASAN / ARTIKEL ==================== -->
-    <div id="page-artikel" class="page">
-        <section style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 0;">
-            <div class="container"><div class="section-header"><h2 style="color:white;">Wawasan & Edukasi</h2><p style="color:#a5d6a7;">Memahami lebih dalam tentang teknologi dan manfaat Kerblodaymolis.</p></div></div>
+    <!-- ==================== ALUR ENERGI ==================== -->
+    <div id="page-alur" class="page">
+        <section class="section-dark">
+            <div class="container"><div class="section-header"><span class="subtitle">Energy Flow</span><h2>Alur Energi Sistem</h2><p>Jalur konversi energi dari sumber hingga output listrik utama.</p></div></div>
         </section>
-        <section style="background: white;">
+        <section>
             <div class="container">
-                <div class="grid-3 reveal">
-                    <div class="article-card">
-                        <div class="article-img" style="background-image:url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=80');"><span class="article-category">Pengertian</span></div>
-                        <div class="article-body"><h3>Apa Itu Kerblodaymolis? Pengertian Lengkap</h3><p>Kerblodaymolis adalah sistem pembangkit listrik yang mengubah energi gerak kerbau menjadi listrik melalui blower, dayung, dan motor listrik. Sebuah inovasi energi terbarukan khas Indonesia.</p><a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div>
+                <!-- Flow Diagram -->
+                <div class="reveal" style="text-align:center; margin-bottom:40px;">
+                    <h3 style="font-size:1.6rem; color:var(--primary); margin-bottom:25px;">Diagram Alur Energi KERBLODAYMOLIS</h3>
+                    <div class="flow-diagram" style="flex-direction:column; gap:8px; max-width:800px; margin:auto;">
+                        <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+                            <div class="flow-box">🐃 Tenaga Hewan</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box">⚙️ Energi Mekanik</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box">🔌 Listrik</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box">⬆️ Step-Up</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box" style="background:#fff8e1; border-color:var(--accent);">📡 Kirim ke Sistem Utama</div>
+                        </div>
+                        <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+                            <div class="flow-box">🚣 Tenaga Dayung</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box">⚙️ Energi Mekanik</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box">🔌 Listrik</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box">⬆️ Step-Up</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box" style="background:#fff8e1; border-color:var(--accent);">📡 Kirim ke Sistem Utama</div>
+                        </div>
+                        <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:15px;">
+                            <div class="flow-box" style="background:#fff8e1; border-color:var(--accent);">⚡ Energi Listrik Masuk</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box">🌀 Blower & Motor</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box">💨 Aliran Udara</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box">🔄 Turbin (Flywheel Utama)</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box">🔌 Generator</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-box" style="background:#e8f5e9; border-color:var(--secondary); font-size:1rem;">✅ OUTPUT LISTRIK UTAMA</div>
+                        </div>
                     </div>
-                    <div class="article-card">
-                        <div class="article-img" style="background-image:url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80');"><span class="article-category">Keunggulan</span></div>
-                        <div class="article-body"><h3>7 Alasan Memilih Kerblodaymolis untuk Desa Anda</h3><p>Dari biaya rendah hingga ramah lingkungan, inilah alasan mengapa Kerblodaymolis adalah pilihan terbaik untuk elektrifikasi pedesaan.</p><a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div>
+                </div>
+
+                <!-- Penjelasan Detail -->
+                <div class="grid-2 reveal" style="align-items:center;">
+                    <div>
+                        <h3 style="font-size:1.6rem; color:var(--primary);">Karakter Utama Sistem</h3>
+                        <ul class="feature-list" style="margin-top:15px;">
+                            <li><i class="fas fa-check-circle"></i> <span><strong>Sistem multi-input</strong> (banyak sumber energi)</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span><strong>Terpusat</strong> pada satu pembangkit utama</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Menggunakan <strong>flywheel sebagai stabilisator energi</strong></span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Berbasis <strong>kombinasi mekanik dan listrik</strong></span></li>
+                        </ul>
                     </div>
-                    <div class="article-card">
-                        <div class="article-img" style="background-image:url('https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600&q=80');"><span class="article-category">Panduan</span></div>
-                        <div class="article-body"><h3>Bagaimana Cara Kerja Sistem Kerblodaymolis?</h3><p>Penjelasan langkah demi langkah: dari kerbau berjalan, blower berputar, dayung menggerakkan generator, hingga listrik tersimpan di baterai.</p><a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div>
-                    </div>
-                    <div class="article-card">
-                        <div class="article-img" style="background-image:url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80');"><span class="article-category">Perbandingan</span></div>
-                        <div class="article-body"><h3>Kerblodaymolis vs Panel Surya: Mana Lebih Baik?</h3><p>Perbandingan objektif antara PLT Kerblodaymolis dan panel surya dari segi biaya, kontinuitas, dan dampak lingkungan.</p><a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div>
-                    </div>
-                    <div class="article-card">
-                        <div class="article-img" style="background-image:url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&q=80');"><span class="article-category">Dampak</span></div>
-                        <div class="article-body"><h3>Manfaat Ekonomi Kerblodaymolis bagi Masyarakat Desa</h3><p>Bagaimana satu unit pembangkit menciptakan lapangan kerja, pendapatan tambahan, dan kemandirian energi bagi ratusan keluarga.</p><a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div>
-                    </div>
-                    <div class="article-card">
-                        <div class="article-img" style="background-image:url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80');"><span class="article-category">Masa Depan</span></div>
-                        <div class="article-body"><h3>Visi Kerblodaymolis: 1000 Desa Mandiri Energi 2030</h3><p>Rencana ekspansi dan target ambisius kami untuk menghadirkan listrik bersih ke seluruh pelosok Indonesia.</p><a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a></div>
+                    <div>
+                        <div class="warning-box" style="margin:0;">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Catatan Teknis Sangat Krusial</h4>
+                            <p>Semua energi akhirnya tetap berasal dari:</p>
+                            <ul style="padding-left:20px; margin:8px 0;">
+                                <li>Hewan</li>
+                                <li>Manusia</li>
+                                <li>Listrik (blower & motor)</li>
+                            </ul>
+                            <p style="margin-top:8px;">❗ <strong>Sistem ini adalah Energy Aggregation System</strong> (penggabungan dan penguatan putaran), <strong>BUKAN pencipta energi baru.</strong></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -479,25 +641,26 @@
 
     <!-- ==================== FAQ ==================== -->
     <div id="page-faq" class="page">
-        <section style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 0;">
-            <div class="container"><div class="section-header"><h2 style="color:white;">Pertanyaan Umum</h2><p style="color:#a5d6a7;">Semua yang perlu Anda ketahui tentang Kerblodaymolis.</p></div></div>
+        <section class="section-dark">
+            <div class="container"><div class="section-header"><span class="subtitle">Tanya Jawab</span><h2>Pertanyaan Umum</h2><p>Memahami sistem KERBLODAYMOLIS secara lebih mendalam.</p></div></div>
         </section>
         <section>
             <div class="container" style="max-width: 800px;">
-                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Apa itu Kerblodaymolis? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Kerblodaymolis adalah sistem pembangkit listrik inovatif yang memanfaatkan energi gerak kerbau yang dikonversi melalui blower, turbin dayung, dan motor listrik menjadi listrik siap pakai. Singkatan dari <strong>Kerbau, Blower, Dayung, Motor Listrik</strong>.</p></div></div>
-                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Berapa kapasitas listrik yang dihasilkan? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Satu unit standar menghasilkan <strong>20-30 kW</strong>, cukup untuk 50-100 rumah tangga. Produksi harian mencapai <strong>720 kWh</strong> dengan sistem shift 3 kerbau.</p></div></div>
-                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Apakah kerbau dieksploitasi? <i class="fas fa-plus"></i></div><div class="faq-answer"><p><strong>Tidak sama sekali.</strong> Kerbau hanya berjalan santai di treadmill seperti sedang merumput. Dilengkapi sensor kesehatan, jam kerja terbatas (shift), dan istirahat cukup. Kesejahteraan hewan adalah prioritas kami.</p></div></div>
-                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Berapa biaya instalasinya? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Biaya bervariasi tergantung kapasitas dan lokasi. Namun secara umum <strong>jauh lebih murah</strong> dibanding pembangkit diesel dalam jangka panjang. Hubungi kami untuk penawaran khusus.</p></div></div>
-                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Apa keunggulan dibanding genset diesel? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Biaya operasional <strong>70% lebih rendah</strong>, tidak ada emisi, tidak bergantung BBM impor, suara lebih senyap, dan memberdayakan ekonomi lokal.</p></div></div>
-                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Apakah tersedia garansi? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Ya, kami memberikan <strong>garansi 2 tahun</strong> untuk seluruh komponen dan dukungan teknis seumur hidup. Tim teknisi kami siap membantu kapan saja.</p></div></div>
+                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Apa itu KERBLODAYMOLIS? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>KERBLODAYMOLIS adalah <strong>Integrated Hybrid Rotational Energy System</strong> — sistem penggabungan dan penguatan putaran (Energy Aggregation System) yang mengintegrasikan Power Plant Tenaga Hewan, Power Plant Tenaga Dayung, dan Pembangkit Utama Blower – Motor Listrik dalam satu arsitektur terpadu. Singkatan dari: <strong>Kerbau, Blower, Dayung, Motor Listrik</strong>.</p></div></div>
+                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Apa yang dimaksud dengan "Energy Aggregation System"? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Ini berarti sistem <strong>menggabungkan dan memperkuat putaran</strong> dari berbagai sumber energi (hewan, manusia/dayung, listrik dari blower & motor). Sistem ini <strong>BUKAN menciptakan energi baru</strong>, melainkan mengagregasi energi dari berbagai input menjadi satu output yang lebih besar dan stabil. Total energi masuk harus ≥ energi keluar.</p></div></div>
+                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Mengapa menggunakan flywheel sumbu vertikal? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Flywheel sumbu vertikal dengan diameter 5–40 meter dan berat 20–400 ton berfungsi sebagai <strong>stabilisator energi mekanik</strong>. Dengan inersia tinggi, flywheel menyimpan energi kinetik dan melepaskannya secara halus, mengurangi fluktuasi putaran. Didukung ribuan bola baja untuk meminimalkan gesekan (low resistance system).</p></div></div>
+                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Bagaimana cara mengatasi RPM rendah dari tenaga hewan? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Tenaga hewan menghasilkan RPM rendah (low speed). Untuk menyesuaikan dengan kebutuhan generator, digunakan <strong>sistem percepatan mekanik</strong> berupa gear atau transmisi yang meningkatkan kecepatan putar sebelum energi dikonversi menjadi listrik. Output listrik kemudian di-step-up tegangannya sebelum dikirim ke sistem utama.</p></div></div>
+                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Apa fungsi blower sentrifugal dalam sistem? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Blower (kipas sentrifugal tekanan tinggi) <strong>menyemprotkan udara bertekanan ke sudu turbin</strong> yang terpasang pada flywheel utama. Aliran udara ini menghasilkan <strong>gaya dorong (torsi)</strong> yang memutar flywheel. Sudu turbin didesain aerodinamis dan disusun simetris untuk mengubah energi aliran udara menjadi putaran secara efisien.</p></div></div>
+                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Kenapa butuh sistem start awal dari energi surya? <i class="fas fa-plus"></i></div><div class="faq-answer"><p>Saat sistem dalam kondisi diam, flywheel besar memerlukan energi awal yang signifikan untuk mulai berputar. <strong>Blower bertenaga listrik dari energi surya</strong> digunakan sebagai starter awal. Setelah sistem stabil dan flywheel mencapai RPM operasional, input dari unit lain (hewan & dayung) membantu menjaga kontinuitas.</p></div></div>
+                <div class="faq-item reveal"><div class="faq-question" onclick="toggleFAQ(this)">Apa tantangan engineering terbesar? <i class="fas fa-plus"></i></div><div class="faq-answer"><p><strong>Blower + Motor Listrik mengkonsumsi energi sangat besar.</strong> Tantangan utamanya adalah membuktikan <strong>total energi masuk ≥ energi keluar</strong> agar sistem efisien dan stabil. Ini memerlukan desain aerodinamis optimal, minimisasi gesekan, dan manajemen energi yang presisi.</p></div></div>
             </div>
         </section>
     </div>
 
     <!-- ==================== KONTAK ==================== -->
     <div id="page-kontak" class="page">
-        <section style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 60px 0;">
-            <div class="container"><div class="section-header"><h2 style="color:white;">Hubungi Kami</h2><p style="color:#a5d6a7;">Konsultasi gratis untuk solusi energi desa dan industri kecil.</p></div></div>
+        <section class="section-dark">
+            <div class="container"><div class="section-header"><span class="subtitle">Hubungi</span><h2>Konsultasi & Kerjasama</h2><p>Diskusikan potensi implementasi sistem KERBLODAYMOLIS untuk kebutuhan energi Anda.</p></div></div>
         </section>
         <section>
             <div class="container">
@@ -508,7 +671,7 @@
                             <input type="text" placeholder="Nama Lengkap" required>
                             <input type="email" placeholder="Email" required>
                             <input type="tel" placeholder="Nomor Telepon">
-                            <select><option>Pilih Keperluan</option><option>Konsultasi Teknis</option><option>Penawaran Kerjasama</option><option>Informasi Produk</option><option>Lainnya</option></select>
+                            <select><option>Pilih Keperluan</option><option>Konsultasi Teknis</option><option>Studi Kelayakan</option><option>Penawaran Kerjasama</option><option>Presentasi Sistem</option><option>Lainnya</option></select>
                             <textarea rows="4" placeholder="Pesan Anda..."></textarea>
                             <button type="submit" class="btn btn-primary" style="width:100%;">Kirim Pesan <i class="fas fa-paper-plane"></i></button>
                         </form>
@@ -531,12 +694,12 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div><h4>PT. Kerblodaymolis Nusantara</h4><p style="font-size:0.85rem;">Inovasi energi hijau berbasis kearifan lokal untuk Indonesia yang lebih bersih dan mandiri energi.</p></div>
-                <div><h4>Navigasi</h4><ul><li><a href="#home" onclick="navigateTo('home')">Beranda</a></li><li><a href="#tentang" onclick="navigateTo('tentang')">Tentang</a></li><li><a href="#teknologi" onclick="navigateTo('teknologi')">Teknologi</a></li><li><a href="#keunggulan" onclick="navigateTo('keunggulan')">Keunggulan</a></li></ul></div>
-                <div><h4>Layanan</h4><ul><li><a href="#">Konsultasi</a></li><li><a href="#">Instalasi</a></li><li><a href="#">Maintenance</a></li><li><a href="#">Training</a></li></ul></div>
+                <div><h4>Power Plan Tenaga Kerblodaymolis</h4><p style="font-size:0.85rem;">Integrated Hybrid Rotational Energy System — inovasi penggabungan dan penguatan putaran untuk energi bersih Indonesia.</p></div>
+                <div><h4>Navigasi</h4><ul><li><a href="#home" onclick="navigateTo('home')">Beranda</a></li><li><a href="#konsep" onclick="navigateTo('konsep')">Konsep</a></li><li><a href="#hewan" onclick="navigateTo('hewan')">Power Plant Hewan</a></li><li><a href="#utama" onclick="navigateTo('utama')">Pembangkit Utama</a></li></ul></div>
+                <div><h4>Teknis</h4><ul><li><a href="#dayung" onclick="navigateTo('dayung')">Power Plant Dayung</a></li><li><a href="#alur" onclick="navigateTo('alur')">Alur Energi</a></li><li><a href="#faq" onclick="navigateTo('faq')">FAQ</a></li></ul></div>
                 <div><h4>Ikuti Kami</h4><ul><li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li><li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li><li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li></ul></div>
             </div>
-            <div class="footer-bottom"><p>&copy; 2025 PT. Kerblodaymolis Nusantara. Seluruh hak cipta dilindungi.</p></div>
+            <div class="footer-bottom"><p>&copy; 2026 Piter Pardede. Mengusung Integrated Hybrid Rotational Energy System untuk Indonesia mandiri energi.</p></div>
         </div>
     </footer>
 
@@ -544,7 +707,7 @@
         // Preloader
         window.addEventListener('load', () => { setTimeout(() => { document.getElementById('preloader').classList.add('hidden'); }, 400); });
 
-        // Toggle Mobile Menu
+        // Mobile Menu
         function toggleMenu() { document.getElementById('mainNav').classList.toggle('open'); }
 
         // Navigasi
@@ -560,14 +723,12 @@
             window.location.hash = pageName;
             document.getElementById('mainNav').classList.remove('open');
         }
-
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 navigateTo(this.getAttribute('data-page'));
             });
         });
-
         window.addEventListener('hashchange', () => {
             const hash = window.location.hash.replace('#', '');
             if (hash && document.getElementById('page-' + hash)) navigateTo(hash);
@@ -577,7 +738,7 @@
             if (document.getElementById('page-' + hash)) navigateTo(hash);
         }
 
-        // FAQ Toggle
+        // FAQ
         function toggleFAQ(el) { el.parentElement.classList.toggle('open'); }
 
         // Header Scroll
@@ -585,12 +746,11 @@
             document.getElementById('mainHeader').classList.toggle('scrolled', window.scrollY > 40);
         });
 
-        // Scroll Reveal
-        const revealElements = document.querySelectorAll('.reveal');
+        // Reveal Animation
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.15 });
-        revealElements.forEach(el => revealObserver.observe(el));
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>
